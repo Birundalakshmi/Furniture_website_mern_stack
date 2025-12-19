@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Minus, Plus, Trash2, ArrowLeft, X, CheckCircle } from 'lucide-react';
-
+import API from "../utils/api";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -59,7 +59,7 @@ const CartPage = () => {
       }));
 
       const total = getTotalPrice();
-      const response = await fetch('http://localhost:5000/api/orders', {
+      const response = await fetch(`${API}/api/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

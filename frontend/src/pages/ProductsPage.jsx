@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, Heart, ShoppingCart } from 'lucide-react';
-
+import API from "../utils/api";
 const ProductsPage = () => {
   const [priceRange, setPriceRange] = useState([0, 50000]);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -39,7 +39,7 @@ const ProductsPage = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/categories');
+      const response = await fetch(`${API}/api/categories`);
       const data = await response.json();
       setCategories(data);
     } catch (error) {
@@ -49,7 +49,7 @@ const ProductsPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/products');
+      const response = await fetch(`${API}/api/products`);
       const data = await response.json();
       setProducts(data);
     } catch (error) {

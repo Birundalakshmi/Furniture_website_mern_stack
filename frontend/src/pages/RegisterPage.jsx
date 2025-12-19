@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
-
+import API from "../utils/api";
 const RegisterPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ const RegisterPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch(`${API}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

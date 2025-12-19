@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BarChart3, Plus, Edit, Package, Hash, Tag, Image } from 'lucide-react';
 import { IndianRupee } from 'lucide-react';
-
+import API from "../utils/api";
 const AdminAddProduct = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -31,7 +31,7 @@ const AdminAddProduct = () => {
       }
       
       const token = adminToken || userToken;
-      const response = await fetch('http://localhost:5000/api/admin/products', {
+      const response = await fetch(`${API}/api/admin/products`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

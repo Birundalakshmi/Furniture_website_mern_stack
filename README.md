@@ -4,12 +4,11 @@ A full-stack furniture e-commerce website with admin dashboard built with React.
 
 ## Project Structure
 
-```
 furniture-project/
 ├── frontend/          # React.js frontend
 ├── backend/           # Node.js backend
 └── README.md
-```
+
 
 ## Features
 
@@ -34,38 +33,38 @@ furniture-project/
 ### Backend Setup
 
 1. Navigate to backend directory:
-```bash
+
 cd backend
-```
+
 
 2. Install dependencies:
-```bash
+
 npm install
-```
+
 
 3. Start the server:
-```bash
+
 npm run dev
-```
+
 
 The backend will run on `http://localhost:5000`
 
 ### Frontend Setup
 
 1. Navigate to frontend directory:
-```bash
+
 cd frontend
-```
+
 
 2. Install dependencies:
-```bash
+
 npm install
-```
+
 
 3. Start the development server:
-```bash
+
 npm run dev
-```
+
 
 The frontend will run on `http://localhost:5173`
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingBag, CheckCircle, Clock, Plus, Package, TrendingUp, Users, BarChart3, Edit, IndianRupee } from 'lucide-react';
-
+import API from "../utils/api";
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem('adminToken') || localStorage.getItem('userToken');
-      const response = await fetch('http://localhost:5000/api/admin/dashboard', {
+      const response = await fetch(`${API}/api/admin/dashboard`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
