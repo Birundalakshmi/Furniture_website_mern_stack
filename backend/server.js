@@ -14,19 +14,20 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 
+app.use(cors());
+app.use(express.json());
+app.get("/", (req, res) => {
+  res.status(200).send("Furnix Backend is running 🚀");
+});
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('Connected to MongoDB');
     seedData();
   })
   .catch(err => {
-    console.error('MongoDB connection error:', err);
-    process.exit(1);
-  });
+  console.error('MongoDB connection error:', err.message);
+});
 
-
-app.use(cors());
-app.use(express.json());
 
 
 async function seedData() {
@@ -363,6 +364,7 @@ app.delete('/api/admin/products/:id', authenticateAdmin, async (req, res) => {
     res.status(400).json({ message: 'Error deleting product' });
   }
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
