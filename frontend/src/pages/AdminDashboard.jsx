@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { ShoppingBag, CheckCircle, Clock, Plus, Package, TrendingUp, Users, BarChart3, Edit, IndianRupee } from 'lucide-react';
-import API from "../utils/api";
+import API from '../utils/api';
 const AdminDashboard = () => {
   const [stats, setStats] = useState(null);
   const navigate = useNavigate();

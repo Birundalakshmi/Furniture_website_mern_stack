@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Home, BarChart3, Plus, Edit, Package, Star, Trash2 } from 'lucide-react';
+import API from '../utils/api';
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -24,7 +25,7 @@ const AdminProducts = () => {
   const fetchProducts = async () => {
     try {
       const token = localStorage.getItem('adminToken') || localStorage.getItem('userToken');
-      const response = await fetch('http://localhost:5000/api/admin/products', {
+      const response = await fetch(`${API}/api/admin/products`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -42,7 +43,7 @@ const AdminProducts = () => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         const token = localStorage.getItem('adminToken') || localStorage.getItem('userToken');
-        await fetch(`http://localhost:5000/api/admin/products/${id}`, {
+        await fetch(`${API}/api/admin/products/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`
